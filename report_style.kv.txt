@@ -1,0 +1,22 @@
+<ReportScreen>:
+	name: : "report"
+	
+    	ActionBar:
+        	ActionView:
+            		ActionPrevious:
+                		title: ""
+                		with_previous: False
+            		ActionOverflow:
+                		ActionButton:
+                    			text: "Settings"
+                    			on_press: app.open_settings()
+	
+
+	FloatLayout:
+		MakeCallButton::
+			size_hint: root.length*.3, root.width*.2
+			pos_hint: {"center_x": .5, "center_y": .5 }
+			text: "Report"
+			tel: number.text
+            on_release: self.call()			
+

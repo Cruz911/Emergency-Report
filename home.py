@@ -5,7 +5,7 @@ from kivy.app import App
 from kivy.uix.button import Label
 from kivy.uix.stacklayout import StackLayout
 from kivy.uix.popup import Popup
-from pymongo import MongoClient
+#from pymongo import MongoClient
 import os
 
 class homeAction(StackLayout):
@@ -19,8 +19,7 @@ class homeAction(StackLayout):
                 if cursor > 0:
                     dataUser = db.users.find({"username" : username, "password" : password}).count()
                     if dataUser > 0:
-                        #popup = Popup(title='Message', content=Label(text="Account Authenticate"), size_hint=(None, None), size=(200, 80))
-                        os.system("python report.py")
+                        popup = Popup(title='Message', content=Label(text="Account Authenticate"), size_hint=(None, None), size=(200, 80))
                     else:
                         popup = Popup(title='Message', content=Label(text="Incorrect Password"), size_hint=(None, None), size=(200, 80))
                 else:
@@ -38,7 +37,7 @@ class homeAction(StackLayout):
         os.system("python forgotpass.py")
 
     def reportApp(self):
-        os.system("python main.py")
+        os.system("python report.py")
 
 class homeLog(App):
 
